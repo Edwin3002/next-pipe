@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { apiUrl } from './apiUrl';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const getAll = async () => {
     const data = await axios.get(apiUrl + 'all');    

@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useRouter} from 'next/router'
-import { getAll } from '../api/getAll'
+import { getAll } from '../apiFront/getAll'
 
 const Products = () => {
 
+  const [data, setData] = useState('')
+
   const getData = async () => {
     const data = await getAll()
-    console.log(data);
+    setData(data)
   }
 
 useEffect(() => {
@@ -15,7 +17,9 @@ getData()
 
 
   return (
-    <div>Products</div>
+    <div>Products
+      <h1>{data.name}</h1>
+    </div>
   )
 }
 
